@@ -25,5 +25,9 @@
 
   <%= f.submit %>
 
+  <%= f.label :image, "Photo" %>
+  <%= image_tag @restaurant.image, width: '300px' if @restaurant.image? %>
+  <%= f.file_field :image %>
+
 
 <% end %>
