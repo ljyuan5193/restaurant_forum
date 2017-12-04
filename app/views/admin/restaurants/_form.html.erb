@@ -8,8 +8,12 @@
 <% end %>
 
 <%= form_for  [:admin, @restaurant] do |f| %>
-  <%= f.label :name, "Name" %><br>
-  <%= f.text_field :name %><br>
+<%= f.label :category, "category" %><br>
+<%= f.collection_select :category_id, Category.all, :id, :name, {prompt:"請選擇"}, {} %><br>
+<br>
+
+<%= f.label :name, "Name" %><br>
+<%= f.text_field :name %><br>
 <br>
   <%= f.label :tel, "Tel" %><br>
   <%= f.text_field :tel %><br>
@@ -31,5 +35,8 @@
 <%= f.submit %>
 <br>
 <br>
+
+
 <%= link_to 'Back to index', admin_restaurants_path %>
+
 <% end %>
