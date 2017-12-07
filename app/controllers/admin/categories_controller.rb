@@ -10,7 +10,7 @@ end
 def create
   @category = Category.new(category_params)
   if @category.save
-    flash[:notice] = "category was successfully created"
+    flash[:notice] = "創建成功"
     redirect_to admin_categories_path
 
   else
