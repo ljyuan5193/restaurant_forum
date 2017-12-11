@@ -9,7 +9,7 @@
 
 <%= form_for  [:admin, @restaurant] do |f| %>
 <%= f.label :category, "category" %><br>
-<%= f.collection_select :category_id, Category.all, :id, :name, {prompt:"請選擇"}, {} %><br>
+<%= f.collection_select :category_id, Category.all, :id, :name, {}, {} %><br>
 <br>
 
 <%= f.label :name, "Name" %><br>
