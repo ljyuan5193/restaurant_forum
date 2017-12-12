@@ -1,0 +1,34 @@
+
+rails db:rollback 重製資料庫
+rails db:migrate 登入資料庫
+
+http://blog.sina.com.cn/s/blog_573a052b0100qvms.html 時間分別函數 及 轉換
+http://hechien.logdown.com/posts/2014/03/15/rails-with-time-zone-note 顯示現在時間
+http://zhudongyao.com/2016/05/31/Rails-%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%97%A5%E6%9C%9F%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE.html 時間加減
+
+heroku run rails console 網站heroku的ruby指令輸入
+heroku run rake db:migrate 資料庫遷移
+heroku run rails dev:fake 網站heroku創建假資料 （需要有gam後才能用）
+heroku run rails db:seed 網站heroku創建種子資料遷移 （需要在db/seeds.rb設定資料才有用）
+heroku run rails c 指令輸入
+
+刪除最後一筆 commit
+git reset HEAD^
+git push --force
+
+將專案PUSH 上 github
+git add . 
+git commit -m "L15s2 setup for heroku deployment"
+git remote add origin https://github.com/ljyuan5193/restaurant_forum   <--我要推的網址
+git push -u origin master
+
+將專案PUSH 上 heroku
+git add . 
+git commit -m "add validates_presence_of :name,:tel,:address,:opening_hours,:description"
+heroku login
+heroku git:remote -a restaurant-forum1
+git push heroku master
+heroku run rake db:migrate
+heroku open
+https://restaurant-forum1.herokuapp.com/ 
+
