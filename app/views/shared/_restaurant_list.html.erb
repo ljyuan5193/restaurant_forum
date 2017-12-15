@@ -1,8 +1,10 @@
-<!-- restaurants list，有多寫restaurant-item的class style -->
+<% fake_img_value=1 %>
 <% @restaurants.each do |restaurant| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="restaurant-item">
-      <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+<div class="col-sm-6 col-md-4">
+  <div class="restaurant-item">
+    <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+    <%= image_tag("http://lorempixel.com/300/300/food/" + fake_img_value.to_s) %>
+      <% fake_img_value+=1 %>
       <div class="caption">
         <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
         <p class="label label-default"><%= restaurant.category.name %><p>
@@ -11,8 +13,6 @@
     </div>
   </div>
 <% end %>
-
-<!-- 有generate kaminari paginate bootstrap style -->
 <div class="text-center">
   <%= paginate @restaurants %>
 </div>
